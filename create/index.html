@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/script.js" defer></script>
+    </head>
+    <body>
+      <button id="hack">
+      Change!!!
+    </button>
+        <p id="out">,</p>
+        <p id="coco">,</p>
+        <p id="lily">,</p>
+        
+  </body>
+        <style type="text/css">
+            /*css goes here*/
+            img {
+    width : 60px;
+    }
+body {
+    background-color : yellow;
+    color: White;
+    }
+        </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+        <script type="text/javascript">
+            // javascript here
+            
+let sentences = [ 
+    "My favorite color is _c_ .",
+    "My favorite band/singer is _m_.",
+    "My favorite ice cream is _i_."
+];
+
+let colors = ["red", "orange", "pink", "purple","blue"];
+let musician = ["CNCO","Ozuna","Camila Cabello","Shawn Mendez","Ed Sheeran"];
+let iceCream = ["Rocky Road","Coffee","Mint Chocolate","Chocolate"];
+
+
+ 
+let colorCount = 0;
+let musicianCount = 0;
+let iceCreamCount = 0;
+$("#hack").click(function(){
+let s0 = sentences[0];
+let s1 = sentences[1];
+let s2 = sentences[2];
+
+
+while (s0.indexOf("_") !== -1)
+{
+    let cIndex = s0.indexOf("_c_");
+    if (cIndex !== -1)
+    {
+    let color = colors[Math.floor(Math.random()*5)];
+     s0 = replace(s0,color, cIndex);
+     colorCount = colorCount + 1;
+     $("body").css("background-color", color);
+    }
+    let mIndex = s1.indexOf("_m_");
+    if (mIndex !== -1)
+    {
+     s1 = replace(s1, musician[Math.floor(Math.random()*5)], mIndex);
+      musicianCount = musicianCount + 1;
+    }
+    let iIndex = s2.indexOf("_i_");
+    if (iIndex !== -1)
+    {
+     s2 = replace(s2, iceCream[Math.floor(Math.random()*4)], iIndex);
+     iceCreamCount = iceCreamCount + 1;
+        }
+        
+        $("#out").html(s0);
+        $("#coco").html(s1);
+        $("#lily").html(s2);
+        
+        function replace(str, replacement, index){
+            let before = str.slice(0, index);
+            let after = str.slice(index + 3);
+            let full = before + replacement + after;
+            return full;
+            }
+            
+        }
+  }); 
+            
+            
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+body{ 
+
+    margin: 0;
+    padding: 0;
+text-align:center;
+    background-color:#A5C3CF;
+}
+
+.page {
+  text-align: center;
+}
+
+.nav { 
+    border: solid 1px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+#content{
+    margin: 0 auto;
+    width: 720px;
+}
